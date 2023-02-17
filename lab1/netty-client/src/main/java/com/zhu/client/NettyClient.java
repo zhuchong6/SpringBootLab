@@ -1,6 +1,7 @@
 package com.zhu.client;
 
 import com.zhu.client.handler.NettyClientHandlerInitializer;
+import com.zhu.codec.Invocation;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -22,7 +23,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Component
 public class NettyClient {
-    private Logger logger = LoggerFactory.getLogger(NettyClient.class);
+    private Logger logger = LoggerFactory.getLogger(getClass());
     /**
      * 重连间隔20s
      */
@@ -99,5 +100,24 @@ public class NettyClient {
         }
         eventGroup.shutdownGracefully();
     }
+
+    /**
+     * 发送消息
+     *
+     * @param invocation 消息体
+     */
+    public void send(Invocation invocation) {
+        if (channel == null) {
+            logger.error("[send][连接不存在]");
+            return;
+        }
+        if (!channel.isActive()) {
+            logger.error("[send][连接({})未激活]", channel.id());
+            return;
+        }
+        // 发送消息
+        channel.writeAndFlush(invocation);
+    }
+
 
 }
