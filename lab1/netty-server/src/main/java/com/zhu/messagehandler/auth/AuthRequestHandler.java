@@ -38,8 +38,7 @@ public class AuthRequestHandler implements MessageHandler<AuthRequest> {
 
         //响应认证
         AuthResponse authResponse = new AuthResponse().setCode(0);
-        String responseString = JSONUtils.toJsonString(authResponse);
-        channel.writeAndFlush(new Invocation(AuthResponse.TYPE, responseString));
+        channel.writeAndFlush(new Invocation(AuthResponse.TYPE, authResponse));
     }
 
     @Override

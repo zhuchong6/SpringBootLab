@@ -23,7 +23,7 @@ public class ChatSendOneHandler implements MessageHandler<ChatSendOneRequest> {
 
     @Override
     public void execute(Channel channel, ChatSendOneRequest message) {
-        //立即返回成功
+        //立即返回成功结果给客户端
         ChatSendResponse chatSendResponse = new ChatSendResponse().setCode(0).setMsgId(message.getMsgId());
         channel.writeAndFlush(new Invocation(ChatSendResponse.TYPE, chatSendResponse));
 
