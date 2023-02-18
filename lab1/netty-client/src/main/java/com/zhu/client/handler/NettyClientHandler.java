@@ -26,7 +26,7 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
     private NettyClient nettyClient;
 
     @Override
-    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         nettyClient.reconnect();
         //继续触发事件
         super.channelActive(ctx);
