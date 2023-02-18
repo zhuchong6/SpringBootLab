@@ -1,5 +1,6 @@
 package com.zhu.message.auth;
 
+import com.zhu.constant.MessageType;
 import com.zhu.dispacher.Message;
 
 /**
@@ -8,7 +9,7 @@ import com.zhu.dispacher.Message;
  * @date 2023/2/17 15:13
  */
 public class AuthRequest implements Message {
-    public static final String TYPE = "AUTH_REQUEST";
+    public static final String TYPE = MessageType.AUTH_REQUEST.name();
 
     /**
      * 认证token

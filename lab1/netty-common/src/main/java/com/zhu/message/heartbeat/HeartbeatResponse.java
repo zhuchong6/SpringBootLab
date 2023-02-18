@@ -1,5 +1,6 @@
 package com.zhu.message.heartbeat;
 
+import com.zhu.constant.MessageType;
 import com.zhu.dispacher.Message;
 
 /**
@@ -11,7 +12,7 @@ public class HeartbeatResponse implements Message {
     /**
      * 类型 - 心跳响应
      */
-    public static final String TYPE = "HEARTBEAT_RESPONSE";
+    public static final String TYPE = MessageType.HEARTBEAT_RESPONSE.name();
 
     @Override
     public String toString() {

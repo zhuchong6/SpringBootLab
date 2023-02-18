@@ -1,5 +1,7 @@
 package com.zhu.codec;
 
+import com.zhu.utils.JSONUtils;
+
 /**
  * @author by zhuhcong
  * @descr 消息体
@@ -24,6 +26,11 @@ public class Invocation {
     public Invocation(String type, String message) {
         this.type = type;
         this.message = message;
+    }
+
+    public Invocation(String type, Object message) {
+        this.type = type;
+        this.message = JSONUtils.toJsonString(message);
     }
 
     public String getType() {

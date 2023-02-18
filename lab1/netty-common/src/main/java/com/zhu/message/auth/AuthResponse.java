@@ -1,5 +1,6 @@
 package com.zhu.message.auth;
 
+import com.zhu.constant.MessageType;
 import com.zhu.dispacher.Message;
 
 /**
@@ -8,7 +9,7 @@ import com.zhu.dispacher.Message;
  * @date 2023/2/17 15:31
  */
 public class AuthResponse implements Message {
-    public static final String TYPE = "AUTH_RESPONSE";
+    public static final String TYPE = MessageType.AUTH_RESPONSE.name();
 
     /**
      * 响应状态码
