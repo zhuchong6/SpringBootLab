@@ -41,5 +41,5 @@ curl --location --request POST 'localhost:8091/test/mock' \
 
 1. 启动好项目
 2. 首先需要执行俩登录接口
-3. 然后测试单人或者群发消息接口
+3. 然后测试单人或者群发消息接口，观察日志
 
