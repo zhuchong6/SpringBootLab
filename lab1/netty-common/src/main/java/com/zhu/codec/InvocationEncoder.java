@@ -20,6 +20,7 @@ public class InvocationEncoder extends MessageToByteEncoder<Invocation> {
     @Override
     protected void encode(ChannelHandlerContext channelHandlerContext, Invocation invocation, ByteBuf byteBuf) throws Exception {
         byte[] bytes = objectMapper.writeValueAsString(invocation).getBytes();
+        //占用4个字节（即32bit）保存整数，所以在判断长度的时候要>4
         byteBuf.writeInt(bytes.length);
         byteBuf.writeBytes(bytes);
         logger.info("[invocation encode][连接({}) 编码了一条消息({})]", channelHandlerContext.channel().id(), invocation.toString());

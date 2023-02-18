@@ -27,10 +27,11 @@ public class InvocationDecoder extends ByteToMessageDecoder {
         //标记当前读取位置
         byteBuf.markReaderIndex();
         //判断是否能读取length长度
+        //占用4个字节（即32bit）保存整数，所以在判断长度的时候要>4
         if (byteBuf.readableBytes() <= 4) {
             return;
         }
-        //读取长度
+        //读取长度，
         int length = byteBuf.readInt();
         if (length < 0) {
             throw new CorruptedFrameException("长度不正确：" + length);
