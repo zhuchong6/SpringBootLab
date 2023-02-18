@@ -17,6 +17,11 @@ public class ChatRedirectToUserRequest implements Message {
     private String fromUser;
 
     /**
+     * 发送给谁的洗消息
+     */
+    private String toUser;
+
+    /**
      * 消息编号
      */
     private String msgId;
@@ -50,6 +55,15 @@ public class ChatRedirectToUserRequest implements Message {
 
     public ChatRedirectToUserRequest setContent(String content) {
         this.content = content;
+        return this;
+    }
+
+    public String getToUser() {
+        return toUser;
+    }
+
+    public ChatRedirectToUserRequest setToUser(String toUser) {
+        this.toUser = toUser;
         return this;
     }
 }

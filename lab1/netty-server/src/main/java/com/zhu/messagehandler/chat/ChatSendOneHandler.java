@@ -30,6 +30,8 @@ public class ChatSendOneHandler implements MessageHandler<ChatSendOneRequest> {
         //将消息转发给指定用户
         ChatRedirectToUserRequest chatRedirectToUserRequest = new ChatRedirectToUserRequest()
                 .setMsgId(message.getMsgId())
+                .setFromUser(message.getFromUser())
+                .setToUser(message.getToUser())
                 .setContent(message.getContent());
         nettyChannelManager.send(message.getToUser(),
                 new Invocation(ChatRedirectToUserRequest.TYPE, chatRedirectToUserRequest));

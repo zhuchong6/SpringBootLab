@@ -22,6 +22,6 @@ public class InvocationEncoder extends MessageToByteEncoder<Invocation> {
         byte[] bytes = objectMapper.writeValueAsString(invocation).getBytes();
         byteBuf.writeInt(bytes.length);
         byteBuf.writeBytes(bytes);
-        logger.info("[encode][连接({}) 编码了一条消息({})]", channelHandlerContext.channel().id(), invocation.toString());
+        logger.info("[invocation encode][连接({}) 编码了一条消息({})]", channelHandlerContext.channel().id(), invocation.toString());
     }
 }

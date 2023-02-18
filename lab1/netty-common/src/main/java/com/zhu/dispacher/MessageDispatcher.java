@@ -31,6 +31,7 @@ public class MessageDispatcher extends SimpleChannelInboundHandler<Invocation> {
      */
     private final ExecutorService executor = Executors.newFixedThreadPool(200);
 
+
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Invocation msg) throws Exception {
         //获得 type 对应的 MessageHandler 处理器

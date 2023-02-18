@@ -13,6 +13,11 @@ public class ChatSendOneRequest implements Message {
     public static final String TYPE = MessageType.CHAT_SEND_TO_ONE_REQUEST.name();
 
     /**
+     * 当前要发信息的用户
+     */
+    private String fromUser;
+
+    /**
      * 发送给用户
      */
     private String toUser;
@@ -51,6 +56,15 @@ public class ChatSendOneRequest implements Message {
 
     public ChatSendOneRequest setContent(String content) {
         this.content = content;
+        return this;
+    }
+
+    public String getFromUser() {
+        return fromUser;
+    }
+
+    public ChatSendOneRequest setFromUser(String fromUser) {
+        this.fromUser = fromUser;
         return this;
     }
 }

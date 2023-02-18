@@ -46,7 +46,7 @@ public class InvocationDecoder extends ByteToMessageDecoder {
         //解析成Invocation
         Invocation invocation = objectMapper.readValue(content, Invocation.class);
         list.add(invocation);
-        logger.info("[decode][连接({}) 解析到一条消息({})]", channelHandlerContext.channel().id(), invocation.toString());
+        logger.info("[invocation decode][连接({}) 解析到一条消息({})]", channelHandlerContext.channel().id(), invocation.toString());
 
     }
 }
