@@ -18,6 +18,7 @@ public enum MessageType {
 
     CHAT_SEND_RESPONSE("消息返回"),
 
+    CHAT_SEND_TO_ALL_REQUEST("群发消息"),
 
     ;
 

@@ -27,8 +27,7 @@ public class AuthRequestHandler implements MessageHandler<AuthRequest> {
         //如果没有携带token
         if (!StringUtils.hasText(authRequest.getAccessToken())) {
             AuthResponse authResponse = new AuthResponse().setCode(1).setMessage("认证token未传入");
-            String requestString = JSONUtils.toJsonString(authResponse);
-            channel.writeAndFlush(new Invocation(AuthResponse.TYPE, requestString));
+            channel.writeAndFlush(new Invocation(AuthResponse.TYPE, authResponse));
             return;
         }
 
